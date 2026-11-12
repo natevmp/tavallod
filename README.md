@@ -14,6 +14,8 @@ npm start
 
 Open http://127.0.0.1:4173/tavallod/. The preview includes the repository prefix so relative links behave like GitHub Pages. Alternatively, serve `docs/` using any static HTTP server. ES modules require HTTP rather than opening the HTML as a local file.
 
+This previews the final dog-wheel design. Only the two optimised, metadata-stripped WebP cutouts are published; original photographs and local design studies are excluded from Git.
+
 ## Tests
 
 ```sh

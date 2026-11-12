@@ -5,7 +5,7 @@ export const PRIZES = Object.freeze([
   'An eReader of your choice!',
   'Breakfast in bed',
   'Breakfast on the toilet',
-  'Spin again!',
+  'Apocketfullofsunshine',
   'A cat',
   'A zebra',
   'British Citizenship',

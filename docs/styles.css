@@ -25,19 +25,18 @@ a { color: inherit; text-underline-offset: 4px; }
 h1 { margin: 0; font-size: clamp(23px, 6.1vw, 35px); font-weight: 900; letter-spacing: -1.1px; line-height: 1.25; }
 h1 bdi { display: inline-block; color: #a74734; font-family: Tahoma, "Geeza Pro", sans-serif; font-weight: 700; letter-spacing: 0; }
 .invitation { margin: 12px 0 0; font-size: 14px; line-height: 1.6; }
+.dedication { margin: 8px 0 0; font-size: 14px; font-style: italic; color: #8f4938; }
 .invitation strong { display: inline-block; text-decoration: underline; text-decoration-color: var(--coral); text-decoration-thickness: 5px; text-underline-offset: 1px; text-decoration-skip-ink: none; }
-.wheel-stage { position: relative; width: min(100%, 420px); margin: 22px auto 12px; }
+.wheel-stage { width: 100%; margin: -2px auto 12px; }
 .wheel-frame { display: block; width: 100%; overflow: visible; }
 .wheel-rim { fill: var(--paper); stroke: var(--ink); stroke-width: 3; }
-#wheel { transform-origin: 300px 300px; }
+/* Safari needs an explicit transform to paint filtered cutouts before a spin. */
+#wheel { transform-origin: 300px 300px; transform: rotate(0deg); }
 .wheel-segment { stroke: var(--ink); stroke-width: 1.7; stroke-linejoin: round; }
-.wheel-label { font-size: 16px; font-weight: 750; fill: var(--ink); letter-spacing: -.2px; }
+.wheel-label { font-size: 19px; font-weight: 750; fill: var(--ink); letter-spacing: -.2px; }
 .wheel-placeholder { fill: var(--ink); font-size: 22px; }
 .wheel-hub { fill: var(--paper); stroke: var(--ink); stroke-width: 2.5; }
-.hub-spark { fill: var(--coral); stroke: var(--ink); stroke-width: 1.7; stroke-linejoin: round; }
-.pointer { position: absolute; width: 33px; height: 40px; top: -9px; left: 50%; transform: translateX(-50%); overflow: visible; }
-.pointer path { fill: var(--coral); stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; }
-.margin-note { display: none; }
+.pointer { fill: var(--coral); stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; }
 .draw-controls { text-align: center; }
 .spin-button { min-height: 54px; width: min(100%, 340px); padding: 13px 24px; border: 2px solid var(--ink); border-radius: 5px 8px 6px 4px; background: var(--coral); box-shadow: 3px 4px 0 var(--ink); font-size: 16px; font-weight: 850; letter-spacing: .9px; transition: background-color 150ms, transform 150ms, box-shadow 150ms; }
 .spin-button span { margin-left: 15px; font-size: 22px; line-height: 0; }
@@ -45,7 +44,7 @@ h1 bdi { display: inline-block; color: #a74734; font-family: Tahoma, "Geeza Pro"
 .spin-button:active:not(:disabled) { transform: translate(2px, 3px); box-shadow: 1px 1px 0 var(--ink); }
 .spin-button:disabled { cursor: default; background: #e1c4af; box-shadow: 1px 2px 0 var(--ink); }
 .result { min-height: 40px; margin: 14px 0 8px; font-size: 14px; line-height: 1.5; }
-.ready-note { font-size: 12px; }
+.result:empty { min-height: 0; margin: 0; }
 .result strong { display: block; font-size: 19px; font-weight: 850; }
 .result .winner-label { display: inline-block; padding: 0 8px; margin-bottom: 3px; font-size: 11px; letter-spacing: 2px; background: var(--mustard); transform: rotate(-2deg); }
 .prize-disclosure { max-width: 340px; margin: 0 auto; font-size: 12px; }
@@ -81,8 +80,6 @@ body:has(dialog[open]) { overflow: hidden; }
   .ticket { padding-top: 34px; }
   .eyebrow { font-size: 11px; }
   .invitation { font-size: 16px; }
-  .wheel-stage { margin-top: 25px; }
-  .margin-note { display: block; position: absolute; top: 18px; left: -65px; font-family: "Bradley Hand", "Segoe Print", cursive; font-size: 15px; line-height: 1.25; transform: rotate(-12deg); }
   .footer { gap: 30px; margin-top: 15px; }
 }
 

@@ -29,6 +29,11 @@ test('landing page loads at the Pages prefix, with all wheel prizes and no error
   await expect(page.locator('[lang="fa"][dir="rtl"]')).toHaveText('تبریک!');
   await expect(spinButton(page)).toBeEnabled();
   await expect(spinButton(page)).toHaveAccessibleName('SPIN THE WHEEL');
+  await expect(page.locator('#result')).toBeEmpty();
+  await expect(page.locator('#wheel > #golden')).toBeVisible();
+  await expect(page.locator('#wheel > #golden-head')).toBeVisible();
+  await expect(page.locator('#white-face')).toBeVisible();
+  await expect(page.locator('body')).not.toContainText('Golden dog spins. White dog supervises.');
   const labels = (await page.locator('svg text').allTextContents()).join(' ').replace(/\s/g, '');
   for (const prize of PRIZES) expect(labels).toContain(prize.replace(/\s/g, ''));
   const dimensions = await page.evaluate(() => ({
@@ -114,8 +119,13 @@ test('terms open as an accessible dialog and restore focus on Escape', async ({ 
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
   await expect(dialog).toContainText(/10\s*PM.*November 27, 2026/i);
-  await expect(dialog).toContainText(/any eReader/i);
-  await expect(dialog).toContainText(/cash/i);
+  await expect(dialog.locator('li')).toHaveText([
+    'The prize must be claimed before 10PM November 27, 2026.',
+    'The prize cannot be exchanged for cash.',
+    'The prize cannot be exchanged for bites.',
+    "No saucise-pard-kon'ing.",
+    'We go.',
+  ]);
   await page.keyboard.press('Escape');
   await expect(dialog).not.toBeVisible();
   await expect(trigger).toBeFocused();

@@ -2,6 +2,7 @@ import { PRIZES, WINNING_INDEX, SEGMENT_ANGLE, planSpin } from './spin.js';
 
 const svgNamespace = 'http://www.w3.org/2000/svg';
 const wheel = document.querySelector('#wheel');
+const wheelSegments = document.querySelector('#wheel-segments');
 const spinButton = document.querySelector('#spin-button');
 const result = document.querySelector('#result');
 const termsDialog = document.querySelector('#terms-dialog');
@@ -10,12 +11,12 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const colors = ['#e8bd58', '#dfd1e7', '#c5dace', '#ef8c76', '#e8bd58', '#dfd1e7', '#c5dace', '#ef8c76', '#e8bd58', '#c5dace'];
 const labelLines = [
   ['50% off', 'McDonalds', '(or 25% off', 'Five Guys)!'],
-  ['An appearance', 'on Eshge', 'Abadi!'],
+  ['An', 'appearance', 'on Eshge', 'Abadi!'],
   ['Saucise', 'pard nakon!'],
   ['An eReader', 'of your', 'choice!'],
   ['Breakfast', 'in bed'],
   ['Breakfast on', 'the toilet'],
-  ['Spin again!'],
+  ['Apocketfull', 'ofsunshine'],
   ['A cat'],
   ['A zebra'],
   ['British', 'Citizenship'],
@@ -46,7 +47,8 @@ function buildWheel() {
       class: 'wheel-segment',
     }));
 
-    const [x, y] = point(middle, 200);
+    // Larger type fits farther out; the zebra label stays clear of the dog.
+    const [x, y] = point(middle, index === 8 ? 170 : 220);
     // Read from the outside edge, with lines in the broad part of each slice.
     // The label at the top pointer is therefore always upright after a spin.
     const angle = middle + 90;
@@ -58,13 +60,13 @@ function buildWheel() {
     });
     const lines = labelLines[index];
     lines.forEach((line, lineIndex) => {
-      const span = svgElement('tspan', { x: 0, y: (lineIndex - (lines.length - 1) / 2) * 19 + 5 });
+      const span = svgElement('tspan', { x: 0, y: (lineIndex - (lines.length - 1) / 2) * 22 + 6 });
       span.textContent = line;
       label.append(span);
     });
     fragment.append(label);
   });
-  wheel.replaceChildren(fragment);
+  wheelSegments.replaceChildren(fragment);
 }
 
 let rotation = 0;

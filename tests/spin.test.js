@@ -4,7 +4,7 @@ import { PRIZES, WINNING_INDEX, SEGMENT_ANGLE, planSpin, prizeIndexAtRotation } 
 
 const normalize = (degrees) => ((degrees % 360) + 360) % 360;
 
-test('the ten prizes and winning segment match the brief', () => {
+test('the ten approved prizes and winning segment are present', () => {
   assert.deepEqual(PRIZES, [
     '50% off McDonalds (or 25% off Five Guys)!',
     'An appearance on Eshge Abadi!',
@@ -12,7 +12,7 @@ test('the ten prizes and winning segment match the brief', () => {
     'An eReader of your choice!',
     'Breakfast in bed',
     'Breakfast on the toilet',
-    'Spin again!',
+    'Apocketfullofsunshine',
     'A cat',
     'A zebra',
     'British Citizenship',
