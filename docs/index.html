@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f2e6">
+    <meta name="description" content="A very official, very happy birthday prize draw. One little spin, one lovely surprise.">
+    <title>The 2026 Tavallod Prize Draw</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <main class="ticket">
+      <header class="intro">
+        <p class="eyebrow"><span aria-hidden="true">✳</span> A VERY SPECIAL BIRTHDAY EDITION <span aria-hidden="true">✳</span></p>
+        <h1>CONGRATULATIONS! <bdi lang="fa" dir="rtl">تبریک!</bdi></h1>
+        <p class="invitation">You have been selected to participate in the<br class="wide-only"> <strong>2026 Tavallod Prize Draw™</strong></p>
+      </header>
+
+      <section class="draw" aria-label="Birthday prize wheel">
+        <div class="wheel-stage">
+          <span class="margin-note" aria-hidden="true">a little spin,<br>a big occasion!</span>
+          <svg class="wheel-frame" viewBox="0 0 600 600" role="img" aria-labelledby="wheel-title wheel-description">
+            <title id="wheel-title">The Tavallod prize wheel</title>
+            <desc id="wheel-description">Ten possible prizes. The complete prize list is available below the spin button.</desc>
+            <circle class="wheel-rim" cx="300" cy="300" r="288" />
+            <g id="wheel" aria-hidden="true">
+              <circle cx="300" cy="300" r="280" fill="#e8dff0" />
+              <text class="wheel-placeholder" x="300" y="295" text-anchor="middle">A little birthday magic…</text>
+            </g>
+            <circle class="wheel-hub" cx="300" cy="300" r="36" />
+            <path class="hub-spark" d="M300 277 L305 294 L322 300 L305 306 L300 323 L295 306 L278 300 L295 294 Z" />
+          </svg>
+          <svg class="pointer" viewBox="0 0 46 55" aria-hidden="true"><path d="M5 5 Q23 0 41 5 L23 49 Z" /></svg>
+        </div>
+
+        <div class="draw-controls">
+          <button id="spin-button" class="spin-button" type="button" disabled>SPIN THE WHEEL <span aria-hidden="true">↗</span></button>
+          <p id="result" class="result" role="status" aria-live="polite" aria-atomic="true"><span class="ready-note">One birthday. Ten possibilities. Your moment.</span></p>
+          <noscript><p class="noscript">The birthday machinery needs JavaScript to spin. Please enable it and reload. You can still browse the prizes and terms below.</p></noscript>
+        </div>
+
+        <details class="prize-disclosure">
+          <summary>A closer look at the prizes <span aria-hidden="true">＋</span></summary>
+          <ol>
+            <li>50% off McDonalds (or 25% off Five Guys)!</li>
+            <li>An appearance on Eshge Abadi!</li>
+            <li>Saucise pard nakon!</li>
+            <li>An eReader of your choice!</li>
+            <li>Breakfast in bed</li>
+            <li>Breakfast on the toilet</li>
+            <li>Spin again!</li>
+            <li>A cat</li>
+            <li>A zebra</li>
+            <li>British Citizenship</li>
+          </ol>
+        </details>
+      </section>
+
+      <footer class="footer">
+        <div class="official-stamp" aria-label="Official Tavallod Prize Authority"><span>OFFICIAL TAVALLOD</span><strong>100% BIRTHDAY</strong><span>PRIZE AUTHORITY</span></div>
+        <div class="fine-print"><a id="terms-link" href="#terms">Terms and conditions apply.</a><p>Certified cause for celebration.<br>Absolutely no sensible prizes guaranteed.</p></div>
+      </footer>
+    </main>
+
+    <dialog id="terms-dialog" aria-labelledby="terms-title">
+      <div class="terms-content">
+        <p class="eyebrow">DEPARTMENT OF BIRTHDAY AFFAIRS</p>
+        <h2 id="terms-title" tabindex="-1" autofocus>The very official small print.</h2>
+        <p>The Authority solemnly declares the following:</p>
+        <ol>
+          <li>The prize must be claimed <strong>before 10PM November 27, 2026</strong>. The committee is very serious about birthdays and moderately serious about paperwork.</li>
+          <li>You may choose <strong>any eReader</strong>. Yes, your choice. The committee has authorised excellent taste.</li>
+          <li>The prize <strong>cannot automatically be exchanged for cash</strong>. Please do not attempt to feed it into a cash machine.</li>
+        </ol>
+        <p class="terms-signoff">Happy birthday. This is the important bit.</p>
+        <form method="dialog"><button class="close-button">Understood, very official.</button></form>
+      </div>
+    </dialog>
+
+    <noscript>
+      <section id="terms" class="noscript-terms" aria-labelledby="noscript-terms-title">
+        <h2 id="noscript-terms-title">The very official small print</h2>
+        <p>The prize must be claimed before 10PM November 27, 2026. Any eReader may be chosen. The prize cannot automatically be exchanged for cash. By solemn birthday decree.</p>
+      </section>
+    </noscript>
+  </body>
+</html>

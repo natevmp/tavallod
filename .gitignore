@@ -1,0 +1,6 @@
+node_modules/
+playwright-report/
+test-results/
+.DS_Store
+# Keep the original planning brief local; the repository contains the finished site.
+/tavallod_prize_draw_spec.md
